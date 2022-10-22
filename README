@@ -1,0 +1,22 @@
+1. Create IAM policy
+2. Install the agent
+
+
+# Unified Cloudwatch Agent
+ - For virtuals servers (EC2 instances, on-premise servers)
+ - To collect additional additional system-level metrics such as RAM, processes, used disk space, etc.
+ - No logs from EC2 instance will be sent to Cloudwatch without using an agent
+ - Centralised configuration via SSM Parameter Store or the agent
+ - Needs correct IAM permissions
+ - Default namespace for metrics collected by the Unified Agent is called CWAgent; this can be changed
+
+ * procstat Plugin
+    - collect metrics and monitor system utilisation of individual processes
+    - processes can be monitored by:
+        - pid_file - name of process ID(pid)
+        - exe - process name filter(RegEx)
+        - pattern - command lines used to start the process(RegEx)
+    - metrics collected by procstat plugin begins with 'procstat' prefix
+    Use Case:
+     - Collect memory usage per process
+     - Collect CPU time per process
